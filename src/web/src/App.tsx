@@ -478,6 +478,11 @@ export function App() {
       // 网盘资源与网课教程属于长期资料型内容，单独成频道，不混进「真福利」
       const excludedCats = channelExcluded("verified");
       if (categories.length === 0 && excludedCats.length) p.set("excludeCategory", excludedCats.join(","));
+    } else if (preset === "free") {
+            p.set("unexpired", "1");
+            p.set("hideRejected", "1");
+            if (kindFilter === "auto") p.set("kind", "freebie");
+            if (obtain === "auto") p.set("obtain", "free,conditional");
     } else if (preset === "offline") {
       // 实物福利独立频道：线下/门店/现场领取，不混进真福利
       p.set("unexpired", "1");
