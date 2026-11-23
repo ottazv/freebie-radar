@@ -18,7 +18,7 @@ services:
     env_file:
             - .env
     volumes:
-      - ./data:/data
+            - data:/data
     logging:
       driver: json-file
       options:
@@ -47,3 +47,6 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+
+volumes:
+  data:
